@@ -28,7 +28,7 @@ public class MoveL: MonoBehaviour
         {
             transform.Translate(Vector3.left * Time.deltaTime * speed);
         }
-        if (gameObject.tag != "Background" && transform.position.x < leftBound || gameObject.tag != "Background" && transform.position.x > rightBound)
+        if (gameObject.tag != "Background" && transform.position.x < leftBound || gameObject.tag != "Background" && transform.position.x > rightBound || gameObject.tag != "Background" && playerController.gameOver == true)
         {
             Destroy(gameObject);
         }

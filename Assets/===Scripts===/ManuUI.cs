@@ -12,9 +12,20 @@ using UnityEngine.SceneManagement;
 [DefaultExecutionOrder(1000)]
 public class ManuUI : MonoBehaviour
 {
+    private void Update()
+    {
+        RestartGame();
+    }
     public void StartNew()
     {
         SceneManager.LoadScene(1);
+    }
+    public void RestartGame()
+    {
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(1);
+        }
     }
     public void ToMenu()
     {
