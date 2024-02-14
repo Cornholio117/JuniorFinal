@@ -20,8 +20,10 @@ public class MoveL: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // ABSTRACTION
         MoveObject();
     }
+
     void MoveObject()
     {
         if (playerController.gameOver == false)

@@ -10,12 +10,11 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] float spwanPosYMax = 11.5f;
     [SerializeField] float spwanPosYMin = -3.5f;
     [SerializeField] float startDely = 7.5f;
-    [SerializeField] float startInterval;
+    [SerializeField] float startInterval = 2;
 
-    // Start is called before the first frame update
     void Start()
     {
-        startInterval = Random.Range(1, 7);
+        //startInterval = Random.Range(1, 5);
         InvokeRepeating("SpawnRandomEnemy", startDely, startInterval);
     }
 
@@ -25,5 +24,6 @@ public class SpawnManager : MonoBehaviour
         Vector3 spawnPos = new Vector3(spwanRangeX, Random.Range(spwanPosYMax, spwanPosYMin), 0);
 
         Instantiate(animalPrefabs[animalIndex], spawnPos, animalPrefabs[animalIndex].transform.rotation);
+        //startInterval = Random.Range(1, 5);
     }
 }

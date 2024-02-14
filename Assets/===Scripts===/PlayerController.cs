@@ -5,13 +5,14 @@ using UnityEngine.Pool;
 
 public class PlayerController : MonoBehaviour
 {
+    // ENCAPSULATION
     private float horizontalInput;
     private float verticallInput;
 
-    [SerializeField] float xRange = 21.5f;
-    [SerializeField] float xRangeNegative = -5.5f;
-    [SerializeField] float yRange = 10.5f;
-    [SerializeField] float yRangeNegative = -4.5f;
+    [SerializeField] float xRange = 19f;
+    [SerializeField] float xRangeNegative = -2.5f;
+    [SerializeField] float yRange = 9f;
+    [SerializeField] float yRangeNegative = -3f;
 
     [SerializeField] float speed = 20.0f;
     [SerializeField] AudioSource fireAudio;
@@ -28,8 +29,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        // ABSTRACTION
         PlayerControls();
     }
+
     private void PlayerControls()
     {
         if (gameOver == false)
@@ -68,10 +71,11 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Instantiate(projectilePrefab, firingPosition.position, projectilePrefab.transform.rotation);
-                fireAudio.PlayOneShot(fireClip, 0.5f);
+                fireAudio.PlayOneShot(fireClip, 0.7f);
             }
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         gameOver = true;

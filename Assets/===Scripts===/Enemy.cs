@@ -4,33 +4,57 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private float m_startDely = 3f;
+    // ENCAPSULATION
+    private float m_startDely = 1.5f;
     public float startDely
     {
         get { return m_startDely; } 
-        set { m_startDely = value; } 
+        set
+        {
+            if (value < 0.0f)
+            {
+                Debug.LogError("You can't set a negative Start Dely!");
+            }
+            else
+            {
+                m_startDely = value; 
+            }
+        } 
     }
+
+    // ENCAPSULATION
     private float m_startInterval = 2f;
     public float startInterval
     {
         get { return m_startInterval; } 
-        set { m_startInterval = value; } 
+        set
+        {
+            if (value < 0.0f)
+            {
+                Debug.LogError("You can't set a negative start Interval!");
+            }
+            else
+            {
+                m_startInterval = value; 
+            }
+        } 
     }
 
     [SerializeField] GameObject boomVFX;
-    [SerializeField] AudioSource fireAudio;
-    [SerializeField] AudioClip fireClip;
 
+    public AudioSource fireAudio;
+    public AudioClip fireClip;
     public GameObject enemyProjectile;
     public Transform firingPosition;
 
 
-    // Start is called before the first frame update
+ 
     void Start()
     {
         InvokeRepeating("FirePlayer", startDely, startInterval);
     }
 
+    // ENCAPSULATION
     protected virtual void FirePlayer()
     {
         

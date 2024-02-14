@@ -16,10 +16,12 @@ public class ManuUI : MonoBehaviour
     {
         RestartGame();
     }
+
     public void StartNew()
     {
         SceneManager.LoadScene(1);
     }
+
     public void RestartGame()
     {
         if(Input.GetKeyDown(KeyCode.R))
@@ -27,10 +29,12 @@ public class ManuUI : MonoBehaviour
             SceneManager.LoadScene(1);
         }
     }
+
     public void ToMenu()
     {
         SceneManager.LoadScene(0);
     }
+
     public void Exit()
     {
 #if UNITY_EDITOR

@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class EnemyOrange : Enemy
 {
-
+    // INHERITANCE, POLYMORPHISM:
     private void Start()
     {
         startDely -= 1;
         startInterval -= 1.5f;
         InvokeRepeating("FirePlayer", startDely, startInterval);
-    }
-    protected override void FirePlayer()
-    {
-        Instantiate(enemyProjectile, firingPosition.transform.position, enemyProjectile.transform.rotation);
     }
 }
